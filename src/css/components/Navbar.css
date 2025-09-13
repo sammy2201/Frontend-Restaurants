@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Quintessential&display=swap");
+
+.navbar {
+  background-color: #18230f;
+  padding: 26px 24px;
+  display: flex;
+  align-items: center;
+  font-family: "Quintessential", serif;
+  font-weight: 400;
+  font-style: normal;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar-brand:hover {
+  color: #e7e7e7;
+}

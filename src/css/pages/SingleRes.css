@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quintessential&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Quintessential&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Cormorant Infant", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.restaurant-page {
+  color: #111827;
+  background-color: #e5ead4;
+  padding: 0 5vw 100px 5vw;
+}
+
+/* Title */
+.restaurant-name {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #18230f;
+  background-color: #e5ead4;
+  text-align: center;
+  padding: 90px 0 96px 0;
+  font-family: "Quintessential", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.restaurant-info,
+.restaurant-hours,
+.restaurant-summary {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.restaurant-link {
+  color: #1f3b6f;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.restaurant-link:hover {
+  text-decoration: underline;
+  color: #374ac0;
+}
+
+.restaurant-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #111827;
+  margin-top: 8px;
+}
+
+.single-res-card {
+  background-color: #f1f1f1;
+  max-width: 700px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: auto;
+}
+
+.restaurant-details {
+  height: 370px;
+  max-width: 450px;
+}
+
+.opening-hours {
+  max-width: 450px;
+  width: 100%;
+  margin-bottom: 30px;
+  height: auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings inside these blocks */
+.info-block b {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 12px;
+  color: #023e52;
+}
+
+.reviews b {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 12px;
+  color: #023e52;
+}
+
+/* List styling */
+.info-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-block li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.info-block li:last-child {
+  border-bottom: none;
+}
+
+.reviews {
+  min-height: 50vh;
+  height: 50vh;
+  overflow: auto;
+  margin-left: auto;
+  right: 0;
+  margin-right: 0;
+  margin-bottom: 30px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-services ul {
+  padding-left: 16px;
+  margin-top: 8px;
+}
+
+.restaurant-services li {
+  margin-bottom: 6px;
+}
+
+.restaurant-reviews ul {
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.review-item {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 0;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-item p:first-child {
+  font-weight: 600;
+  color: #1f3b6f;
+}
+
+.review-item p:last-child {
+  margin-top: 4px;
+  color: #4b5563;
+}
+
+.loading-text,
+.error-text {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin-top: 40px;
+}
+
+.section-wrapper {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.map-wrapper {
+  flex: 1;
+  height: 410px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-right: 25px;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 768px) {
+  .section-wrapper {
+    flex-direction: column;
+  }
+
+  .map-wrapper {
+    height: 300px; /* shrink a bit for mobile */
+  }
+}
