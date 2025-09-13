@@ -49,11 +49,6 @@ export default function RestaurantPage() {
   if (errorMessage) return <p className="error-text">{errorMessage}</p>;
   if (!restaurant) return <p className="error-text">Restaurant not found</p>;
 
-  const restaurantPosition: [number, number] = [
-    restaurant.geometry.location.lat,
-    restaurant.geometry.location.lng,
-  ];
-
   return (
     <div className="restaurant-page">
       <h1 className="restaurant-name">{restaurant.name}</h1>
@@ -61,7 +56,7 @@ export default function RestaurantPage() {
       <div className="section-wrapper">
         {/* section 1 */}
         <div className="map-wrapper">
-          <Map position={restaurantPosition} restaurant={restaurant} />
+          <Map restaurant={restaurant} />
         </div>
         {/* section 2 */}
         <div className="single-res-card restaurant-details">

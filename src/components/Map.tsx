@@ -14,21 +14,22 @@ const dropletSVG = `
 
 const dropletIcon = new L.DivIcon({
   html: dropletSVG,
-  className: "",
   iconSize: [32, 32],
   iconAnchor: [16, 32],
+  className: "",
 });
 
 export default function Map({
-  position,
   restaurant,
 }: {
-  position: [number, number];
   restaurant: RestaurantMapProps;
 }) {
   return (
     <MapContainer
-      center={position}
+      center={[
+        restaurant.geometry.location.lat,
+        restaurant.geometry.location.lng,
+      ]}
       zoom={16}
       style={{ height: "600px", width: "100%" }}>
       <TileLayer
@@ -36,7 +37,12 @@ export default function Map({
         attribution="&copy; OpenStreetMap contributors"
       />
 
-      <Marker position={position} icon={dropletIcon}>
+      <Marker
+        position={[
+          restaurant.geometry.location.lat,
+          restaurant.geometry.location.lng,
+        ]}
+        icon={dropletIcon}>
         <Popup>{restaurant.name}</Popup>
       </Marker>
 
