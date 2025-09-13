@@ -84,11 +84,7 @@ export default function RestaurantPage() {
           {restaurant.website && (
             <p className="restaurant-info">
               <b>Website:</b>{" "}
-              <a
-                className="restaurant-link"
-                href={restaurant.website}
-                target="_blank"
-                rel="noreferrer">
+              <a className="restaurant-link" href={restaurant.website}>
                 {restaurant.website}
               </a>
             </p>

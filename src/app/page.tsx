@@ -23,14 +23,14 @@ export default function HomePage() {
     containerRef,
   } = useAppState();
 
-  const fetchRestaurants = async (newPage: number, newLocation?: string) => {
+  const fetchRestaurants = async (newPage: number) => {
     if (!location || loading) return;
     setLoading(true);
 
     try {
       const res = await axios.get("http://localhost:3000/restaurants", {
         params: {
-          location: newLocation || location,
+          location: location,
           radius: 1500,
           page: newPage,
         },
@@ -49,11 +49,7 @@ export default function HomePage() {
 
       setRestaurants((prev: Restaurant[]) => {
         const combined = newPage === 1 ? fetched : [...prev, ...fetched];
-        const unique = combined.filter(
-          (item, index, self) =>
-            index === self.findIndex((t) => t.place_id === item.place_id)
-        );
-        return unique;
+        return combined;
       });
     } catch (err) {
       console.error("Request failed:", err);
@@ -65,7 +61,7 @@ export default function HomePage() {
   const handleSearch = () => {
     setPage(1);
     setHasMore(true);
-    fetchRestaurants(1, location);
+    fetchRestaurants(1);
   };
 
   const handleScroll = () => {
@@ -96,7 +92,6 @@ export default function HomePage() {
         containerRef={containerRef}
         handleScroll={handleScroll}
         loading={loading}
-        hasMore={hasMore}
       />
     </div>
   );

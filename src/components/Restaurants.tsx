@@ -10,13 +10,11 @@ export default function Restaurants({
   containerRef,
   handleScroll,
   loading,
-  hasMore,
 }: {
   restaurants: any[];
   containerRef: RefObject<HTMLDivElement | null>;
   handleScroll: () => void;
   loading: boolean;
-  hasMore: boolean;
 }) {
   const router = useRouter();
   const [filter, setFilter] = useState("");
@@ -87,9 +85,6 @@ export default function Restaurants({
         </div>
 
         {loading && <p className="center-text">Loading...</p>}
-        {!hasMore && !loading && (
-          <p className="center-text">No more restaurants</p>
-        )}
       </div>
     </div>
   );
