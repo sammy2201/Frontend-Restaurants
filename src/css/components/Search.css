@@ -3,9 +3,8 @@
 .search-container {
   display: flex;
   justify-content: center;
-  padding: 24px 0;
+  padding: 24px 0 90px 0;
   background-color: #e1e9c9;
-  padding-bottom: 90px;
 }
 
 .search-box {
