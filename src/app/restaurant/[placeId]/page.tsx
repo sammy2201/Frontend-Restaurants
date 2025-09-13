@@ -4,20 +4,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "@/css/pages/SingleRes.css";
 import dynamic from "next/dynamic";
-
-// dynamically import Map with SSR disabled
-const Map = dynamic(() => import("@/components/Map"), {
-  ssr: false,
-});
-
 import { Star } from "lucide-react";
 import { RestaurantDetails } from "@/types/types";
+
+// dynamically import Map with SSR disabled
+const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 
 export default function RestaurantPage() {
   const params = useParams();
   const placeId = params.placeId;
   const [restaurant, setRestaurant] = useState<RestaurantDetails | null>(null);
   const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!placeId) return;
@@ -27,9 +25,18 @@ export default function RestaurantPage() {
         const res = await axios.get(
           `http://localhost:3000/restaurants/${placeId}`
         );
-        setRestaurant(res.data);
+
+        const { status, data, message } = res.data;
+
+        if (status === "error") {
+          setErrorMessage(message || "Failed to fetch restaurant");
+          setRestaurant(null);
+        } else {
+          setRestaurant(data);
+        }
       } catch (err) {
         console.error("Failed to fetch restaurant:", err);
+        setErrorMessage("Something went wrong while fetching restaurant");
       } finally {
         setLoading(false);
       }
@@ -39,6 +46,7 @@ export default function RestaurantPage() {
   }, [placeId]);
 
   if (loading) return <p className="loading-text">Loading...</p>;
+  if (errorMessage) return <p className="error-text">{errorMessage}</p>;
   if (!restaurant) return <p className="error-text">Restaurant not found</p>;
 
   const restaurantPosition: [number, number] = [
@@ -114,7 +122,7 @@ export default function RestaurantPage() {
       </div>
 
       <div className="section-wrapper">
-        {/* section 3*/}
+        {/* section 3 */}
         <div className="single-res-card opening-hours info-block ">
           {restaurant.opening_hours?.weekday_text && (
             <div className="restaurant-hours">
@@ -127,7 +135,7 @@ export default function RestaurantPage() {
             </div>
           )}
         </div>
-        {/* section 4*/}
+        {/* section 4 */}
         <div className="reviews single-res-card">
           {restaurant.reviews && restaurant.reviews.length > 0 && (
             <div className="restaurant-reviews">
@@ -148,7 +156,7 @@ export default function RestaurantPage() {
         </div>
       </div>
 
-      {/* section 5*/}
+      {/* section 5 */}
       {restaurant.serves_breakfast !== undefined && (
         <div className="single-res-card info-block ">
           <div className="restaurant-services">

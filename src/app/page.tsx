@@ -36,11 +36,20 @@ export default function HomePage() {
         },
       });
 
-      const data: Restaurant[] = res.data.results || [];
-      if (data.length === 0) setHasMore(false);
+      // new backend structure
+      const { status, data, message } = res.data;
+
+      if (status === "error") {
+        console.error("API Error:", message);
+        setHasMore(false);
+        return;
+      }
+
+      const fetched: Restaurant[] = data?.results || [];
+      if (fetched.length === 0) setHasMore(false);
 
       setRestaurants((prev: Restaurant[]) => {
-        const combined = newPage === 1 ? data : [...prev, ...data];
+        const combined = newPage === 1 ? fetched : [...prev, ...fetched];
         const unique = combined.filter(
           (item, index, self) =>
             index === self.findIndex((t) => t.place_id === item.place_id)
@@ -48,7 +57,7 @@ export default function HomePage() {
         return unique;
       });
     } catch (err) {
-      console.error(err);
+      console.error("Request failed:", err);
     } finally {
       setLoading(false);
     }
