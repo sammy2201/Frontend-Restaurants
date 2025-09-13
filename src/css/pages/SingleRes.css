@@ -19,10 +19,9 @@ body {
 
 /* Title */
 .restaurant-name {
-  margin: 0;
+  margin: 0 0 24px 0;
   font-size: 4rem;
   font-weight: 700;
-  margin-bottom: 24px;
   color: #18230f;
   background-color: #e5ead4;
   text-align: center;
@@ -56,12 +55,11 @@ body {
   gap: 6px;
   font-weight: 600;
   color: #111827;
-  margin-top: 8px;
+  margin: 8px 0 0 0;
 }
 
 .single-res-card {
   background-color: #f1f1f1;
-  max-width: 700px;
   padding: 20px;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
@@ -77,33 +75,36 @@ body {
 .opening-hours {
   max-width: 450px;
   width: 100%;
-  margin-bottom: 30px;
+  margin: 0 0 30px 0;
   height: auto;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.reviews {
+  flex: 1;
+  min-height: 50vh;
+  height: 50vh;
+  overflow: auto;
+  margin: 0 0 30px 25px;
 }
 
 /* Headings inside these blocks */
-.info-block b {
-  font-size: 1.2rem;
-  display: block;
-  margin-bottom: 12px;
-  color: #023e52;
-}
-
+.info-block b,
 .reviews b {
   font-size: 1.2rem;
   display: block;
-  margin-bottom: 12px;
+  margin: 0 0 12px 0;
   color: #023e52;
 }
 
 /* List styling */
 .info-block ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .info-block li {
@@ -119,33 +120,23 @@ body {
   border-bottom: none;
 }
 
-.reviews {
-  min-height: 50vh;
-  height: 50vh;
-  overflow: auto;
-  margin-left: auto;
-  right: 0;
-  margin-right: 0;
-  margin-bottom: 30px;
-}
-
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
 .restaurant-services ul {
-  padding-left: 16px;
-  margin-top: 8px;
+  margin: 8px 0 0 0;
+  padding: 0 0 0 16px;
 }
 
 .restaurant-services li {
-  margin-bottom: 6px;
+  margin: 0 0 6px 0;
 }
 
 .restaurant-reviews ul {
-  padding-left: 0;
-  margin-top: 8px;
+  margin: 8px 0 0 0;
+  padding: 0;
 }
 
 .review-item {
@@ -163,7 +154,7 @@ body {
 }
 
 .review-item p:last-child {
-  margin-top: 4px;
+  margin: 4px 0 0 0;
   color: #4b5563;
 }
 
@@ -172,13 +163,13 @@ body {
   text-align: center;
   font-size: 1.25rem;
   color: #6b7280;
-  margin-top: 40px;
+  margin: 40px 0 0 0;
 }
 
 .section-wrapper {
   display: flex;
   gap: 24px;
-  margin-top: 24px;
+  margin: 24px 0 0 0;
 }
 
 .map-wrapper {
@@ -186,7 +177,7 @@ body {
   height: 410px;
   border-radius: 16px;
   overflow: hidden;
-  margin-right: 25px;
+  margin: 0 25px 0 0;
 }
 
 /* Responsive: stack on smaller screens */
@@ -196,6 +187,11 @@ body {
   }
 
   .map-wrapper {
-    height: 300px; /* shrink a bit for mobile */
+    height: 300px;
+    margin: 0;
+  }
+
+  .reviews {
+    margin: 0 0 30px 0;
   }
 }

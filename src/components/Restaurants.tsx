@@ -31,6 +31,7 @@ export default function Restaurants({
         ref={containerRef}
         className={restaurants.length == 0 ? " container" : " blur container "}
         onScroll={handleScroll}>
+        <div className="filters"></div>
         <div className="grid">
           {restaurants.map((r, idx) => (
             <div

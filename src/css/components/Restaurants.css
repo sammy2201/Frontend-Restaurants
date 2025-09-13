@@ -19,7 +19,6 @@ h2 {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   overflow-y: auto;
@@ -40,6 +39,20 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
+  padding: 20px;
+}
+
+.filters {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 12px;
+  background-color: #e1e9c9;
+  color: #fff;
 }
 
 .card {
