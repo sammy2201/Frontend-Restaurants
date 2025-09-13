@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import { AppStateProvider } from "../context/AppStateContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

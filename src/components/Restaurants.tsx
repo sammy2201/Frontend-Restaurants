@@ -2,7 +2,7 @@
 
 import { RefObject, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import "../css/components/Restaurants.css";
+import "@/css/components/Restaurants.css";
 import { Star } from "lucide-react";
 
 export default function Restaurants({

@@ -1,5 +1,3 @@
-"use client";
-
 import "@/css/components/Welcome.css";
 
 export default function Welcome() {

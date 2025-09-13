@@ -1,4 +1,4 @@
-import "../css/components/Navbar.css";
+import "@/css/components/Navbar.css";
 import Link from "next/link";
 
 export default function Navbar() {

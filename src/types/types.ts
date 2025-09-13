@@ -44,3 +44,8 @@ export type RestaurantDetails = {
   serves_lunch?: boolean;
   serves_dinner?: boolean;
 };
+
+export type RestaurantMapProps = {
+  name: string;
+  geometry: { location: { lat: number; lng: number } };
+};

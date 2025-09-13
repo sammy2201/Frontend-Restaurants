@@ -3,6 +3,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { RestaurantMapProps } from "@/types/types";
 
 // Droplet SVG
 const dropletSVG = `
@@ -20,13 +21,10 @@ const dropletIcon = new L.DivIcon({
 
 export default function Map({
   position,
-  restaurants,
+  restaurant,
 }: {
   position: [number, number];
-  restaurants: {
-    name: string;
-    geometry: { location: { lat: number; lng: number } };
-  }[];
+  restaurant: RestaurantMapProps;
 }) {
   return (
     <MapContainer
@@ -39,17 +37,17 @@ export default function Map({
       />
 
       <Marker position={position} icon={dropletIcon}>
-        <Popup>{restaurants[0].name}</Popup>
+        <Popup>{restaurant.name}</Popup>
       </Marker>
 
-      {restaurants.map((r, idx) => (
-        <Marker
-          key={idx}
-          position={[r.geometry.location.lat, r.geometry.location.lng]}
-          icon={dropletIcon}>
-          <Popup>{r.name}</Popup>
-        </Marker>
-      ))}
+      <Marker
+        position={[
+          restaurant.geometry.location.lat,
+          restaurant.geometry.location.lng,
+        ]}
+        icon={dropletIcon}>
+        <Popup>{restaurant.name}</Popup>
+      </Marker>
     </MapContainer>
   );
 }

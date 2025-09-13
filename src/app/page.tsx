@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 import axios from "axios";
-import Search from "../components/Search";
-import Restaurants from "../components/Restaurants";
-import { useAppState } from "../context/AppStateContext";
+import Search from "@/components/Search";
+import Restaurants from "@/components/Restaurants";
+import { useAppState } from "@/context/AppStateContext";
 import Welcome from "@/components/Welcome";
-import { Restaurant } from "../types/types";
+import { Restaurant } from "@/types/types";
 
 export default function HomePage() {
   const {
@@ -36,7 +36,6 @@ export default function HomePage() {
         },
       });
 
-      // new backend structure
       const { status, data, message } = res.data;
 
       if (status === "error") {

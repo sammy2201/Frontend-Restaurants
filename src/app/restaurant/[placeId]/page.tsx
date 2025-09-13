@@ -14,7 +14,7 @@ export default function RestaurantPage() {
   const params = useParams();
   const placeId = params.placeId;
   const [restaurant, setRestaurant] = useState<RestaurantDetails | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function RestaurantPage() {
       <div className="section-wrapper">
         {/* section 1 */}
         <div className="map-wrapper">
-          <Map position={restaurantPosition} restaurants={[restaurant]} />
+          <Map position={restaurantPosition} restaurant={restaurant} />
         </div>
         {/* section 2 */}
         <div className="single-res-card restaurant-details">
